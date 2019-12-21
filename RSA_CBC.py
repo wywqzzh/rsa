@@ -219,9 +219,13 @@ class CBC:
             MS += self.Dpadding(m)
         self.save_PlainText(MS)
 
-
-cbc = CBC()
-Pfile = 'C:/Users/76774/Desktop/b.jpg'
-Cfile = 'C:/Users/76774/Desktop/b'
-keysFile = 'C:/Users/76774/Desktop/c.key'
-cbc.decrypt(Pfile, Cfile, keysFile)
+# cbc = CBC()
+# Pfile = 'C:/Users/76774/Desktop/a.jpg'
+# Cfile = 'C:/Users/76774/Desktop/Image'
+# keysFile = 'C:/Users/76774/Desktop/ss.pub'
+# cbc.encrypt(Pfile, Cfile, keysFile)
+# cbc.gen_keys('C:/Users/76774/Desktop/ss')
+# Pfile = 'C:/Users/76774/Desktop/d.jpg'
+# Cfile = 'C:/Users/76774/Desktop/Image'
+# keysFile = 'C:/Users/76774/Desktop/ss.key'
+# cbc.decrypt(Pfile, Cfile, keysFile)
