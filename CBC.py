@@ -86,11 +86,9 @@ class CBC:
     def Dpadding(self, B):
         x = 0
         for i in range(1, len(B)):
-            print(B[i])
             if B[i] == 0:
                 x = i
                 break
-        print(x)
         return B[x + 1:]
     def decrypt(self):
         pass
@@ -110,16 +108,17 @@ class CBC:
                 cunt = 0
                 C.append(mpz('0b' + ''.join(temp)))
                 temp = []
+        f.close()
         message=[]
         for i in C:
             message.append(self.rsa.decrypt(i))
         Final=bytearray()
         for m in message:
             Final+=self.Dpadding(m)
-        print(len(Final))
-        print(Final.decode('gbk'))
+        f = open('C:/Users/76774/Desktop/b.jpg', 'wb')
+        f.write(Final)
+        f.close()
 cbc = CBC()
-cbc.getFile('C:/Users/76774/Desktop/a.txt')
+cbc.getFile('C:/Users/76774/Desktop/a.jpg')
 C, S = cbc.encrypt()
 cbc.decrypt()
-flag = True

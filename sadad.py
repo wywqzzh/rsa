@@ -1,4 +1,5 @@
 import gmpy2
+from gmpy2 import mpz
 import binascii
 # def to_binary(n):
 #     s = []
@@ -43,15 +44,6 @@ import binascii
 # x=Binary_byters(z)
 # print(x.decode('gbk'))
 # print(y)
-
-
-
-x=b'\xff'
-y=b'\xff'
-print(x,y)
-print((x+y).decode('gbk'))
-print(len(x+y))
-
 
 
 
