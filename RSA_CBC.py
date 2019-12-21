@@ -1,7 +1,5 @@
-from my_rsa import RSA
-import base64
+from RSA import RSA
 from gmpy2 import mpz
-import gmpy2
 import random
 
 

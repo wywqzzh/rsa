@@ -24,7 +24,8 @@ class RSA:
     def set_public_keys(self, n, e):
         self.n = n
         self.e = e
-    def gen_prime(self,rs):
+
+    def gen_prime(self, rs):
         """生成二进制位数为1024的随机素数"""
         p = gmpy2.mpz_urandomb(rs, 1024)
         while not gmpy2.is_prime(p):
@@ -48,7 +49,7 @@ class RSA:
         C = gmpy2.powmod(M, self.e, self.n)
         return C
 
-    def Binary_byters(self,s):
+    def Binary_byters(self, s):
         Z = bytearray()
         for i in range(len(s) // 8):
             temp = s[i * 8:i * 8 + 8]
@@ -70,8 +71,6 @@ class RSA:
             return M
         else:
             return x
-
-
 
 # def main():
 #     # 密钥生成

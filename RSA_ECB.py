@@ -1,10 +1,6 @@
-from my_rsa import RSA
-import base64
+from RSA import RSA
 from gmpy2 import mpz
-import gmpy2
 import random
-
-
 class CBC:
     def __init__(self):
         self.rsa = RSA()
@@ -67,10 +63,6 @@ class CBC:
             PlainText.append(temp)
             c = self.rsa.encrypt(temp)
             C.append(c)
-        Initialization_vector = self.gen_IV()
-        Ciphertext = [self.to_Bytes(Initialization_vector)]
-        for plaintext in PlainText:
-            int.from_bytes(plaintext, byteorder='big')
         f = open('C:/Users/76774/Desktop/b', 'wb')
         S = []
         for i in C:
@@ -117,7 +109,7 @@ class CBC:
         f.close()
         message=[]
         for i in C:
-            message.append(self.rsa.decrypt(i))
+            message.append(self.rsa.decrypt(i, 2))
         Final=bytearray()
         for m in message:
             Final+=self.Dpadding(m)
