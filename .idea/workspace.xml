@@ -338,7 +338,7 @@
       <workItem from="1576886021860" duration="14066000" />
       <workItem from="1576901944287" duration="598000" />
       <workItem from="1576903854936" duration="6503000" />
-      <workItem from="1576911204141" duration="754000" />
+      <workItem from="1576911204141" duration="910000" />
     </task>
     <task id="LOCAL-00001" summary="12.21">
       <created>1576886538796</created>
@@ -375,14 +375,21 @@
       <option name="project" value="LOCAL" />
       <updated>1576911363949</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="12.21-15:11">
+      <created>1576912309949</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1576912309949</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63934000" />
+    <option name="totallyTimeSpent" value="64090000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22547974" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -416,7 +423,8 @@
     <MESSAGE value="12.21-11::02" />
     <MESSAGE value="12.21-11::13" />
     <MESSAGE value="12.21-14:55" />
-    <option name="LAST_COMMIT_MESSAGE" value="12.21-14:55" />
+    <MESSAGE value="12.21-15:11" />
+    <option name="LAST_COMMIT_MESSAGE" value="12.21-15:11" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
