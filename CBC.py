@@ -2,9 +2,7 @@ from my_rsa import RSA
 import base64
 from gmpy2 import mpz
 import gmpy2
-import io
-
-import operator
+import random
 
 
 class CBC:
@@ -17,12 +15,6 @@ class CBC:
         self.file = file
 
     def to_Bytes(self, p):
-        # x=[]
-        # while(p!=0):
-        #     x.append(str(gmpy2.mod(p,2)))
-        #     p//=2
-        # x.append('0')
-        # x.reverse()
         s= bin(p)
         z=''
         for i in range(2050-len(s)):
@@ -44,11 +36,19 @@ class CBC:
         Final_Results += b'\x00'
         Final_Results+=B
         return Final_Results
+
+    def gen_IV(self):
+        s = '0b' + '0'
+        for i in range(2047):
+            x = random.randint(0, 1)
+            s += str(x)
+        return mpz(s)
     def encrypt(self):
         f = open(self.file, 'rb')
         temp = bytearray()
         cunt = 0
         C = []
+        PlainText = []
         while True:
             ch = f.read(1)
             if not ch:
@@ -57,14 +57,20 @@ class CBC:
             cunt += 1
             if cunt == 117:
                 temp=self.padding(temp)
+                PlainText.append(temp)
                 c = self.rsa.encrypt(temp)
                 C.append(c)
                 cunt = 0
                 temp = bytearray()
         if len(temp)!=0:
-            temp=temp=self.padding(temp)
+            temp = self.padding(temp)
+            PlainText.append(temp)
             c = self.rsa.encrypt(temp)
             C.append(c)
+        Initialization_vector = self.gen_IV()
+        Ciphertext = [self.to_Bytes(Initialization_vector)]
+        for plaintext in PlainText:
+            int.from_bytes(plaintext, byteorder='big')
         f = open('C:/Users/76774/Desktop/b', 'wb')
         S = []
         for i in C:

@@ -44,8 +44,21 @@ import binascii
 # x=Binary_byters(z)
 # print(x.decode('gbk'))
 # print(y)
+# import random
+#
+# def gen_IV():
+#     s = '0b' + '0'
+#     for i in range(2047):
+#         x = random.randint(0, 1)
+#         s += str(x)
+#     print(s)
+#     return mpz(s)
+# x=gen_IV()
+# print(x.bit_length())
+# print(x.num_digits())
+# print(x)
+# print(int.from_bytes())
 
 
-
-
-
+x = mpz('23123412')
+print(x)

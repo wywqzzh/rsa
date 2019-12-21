@@ -17,6 +17,13 @@ class RSA:
 
         self.d = gmpy2.invert(self.e, self.phi)
 
+    def set_private_keys(self, n, d):
+        self.n = n
+        self.d = d
+
+    def set_public_keys(self, n, e):
+        self.n = n
+        self.e = e
     def gen_prime(self,rs):
         """生成二进制位数为1024的随机素数"""
         p = gmpy2.mpz_urandomb(rs, 1024)
@@ -33,7 +40,10 @@ class RSA:
 
     def encrypt(self, message):
         """将输入消息转换成16进制数字并加密，支持utf-8字符串"""
-        M = mpz(int.from_bytes(message, byteorder='big'))
+        if not isinstance(message, mpz):
+            M = mpz(int.from_bytes(message, byteorder='big'))
+        else:
+            M = message
         # M = mpz(binascii.hexlify(message.encode('utf-8')), 16)
         C = gmpy2.powmod(M, self.e, self.n)
         return C
@@ -47,7 +57,7 @@ class RSA:
             Z += x
         return Z
 
-    def decrypt(self,C):
+    def decrypt(self, C, type):
         """对输入的密文进行解密并解码"""
         M = gmpy2.powmod(C, self.d, self.n)
         s = bin(M)[2:]
@@ -56,9 +66,10 @@ class RSA:
             z += '0'
         z += s
         x = self.Binary_byters(z)
-        # y=x.to_bytes(8,byteorder='big').decode('gbk')
-        return x
-        # return binascii.unhexlify(format(M, 'x')).decode('utf-8')
+        if type == 1:
+            return M
+        else:
+            return x
 
 
 
