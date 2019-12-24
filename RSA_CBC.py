@@ -17,6 +17,7 @@ class CBC:
 
     # 保存密钥
     def gen_keys(self, filename):
+        self.rsa = RSA()
         n = str(self.rsa.n).encode('utf-8')
         e = str(self.rsa.e).encode('utf-8')
         d = str(self.rsa.d).encode('utf-8')

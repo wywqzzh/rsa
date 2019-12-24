@@ -1,8 +1,8 @@
 import gmpy2
 from gmpy2 import mpz
 import binascii
-
-
+import os
+import random
 class RSA:
     def __init__(self):
         # 大素数
@@ -10,7 +10,7 @@ class RSA:
         # 公钥
         self.n = self.p * self.q
 
-        # 私钥
+
         self.e = 65537
         # n的欧拉函数
         self.phi = (self.p - 1) * (self.q - 1)
@@ -34,7 +34,9 @@ class RSA:
 
     def gen_key(self):
         """生成密钥"""
-        rs = gmpy2.random_state()
+        seed = random.randint(0, 100000000000)
+        rs = gmpy2.random_state(seed)
+        print (rs)
         p = self.gen_prime(rs)
         q = self.gen_prime(rs)
         return p, q
@@ -45,7 +47,6 @@ class RSA:
             M = mpz(int.from_bytes(message, byteorder='big'))
         else:
             M = message
-        # M = mpz(binascii.hexlify(message.encode('utf-8')), 16)
         C = gmpy2.powmod(M, self.e, self.n)
         return C
 

@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter.filedialog import *
 from RSA_CBC import CBC
 
-
 def get_screen_size(window):
     return window.winfo_screenwidth(), window.winfo_screenheight()
 
@@ -28,7 +27,8 @@ class Application(tk.Frame):
     def createWidgets(self):
         self.Label = Label(self, text='')
         self.Label.grid(row=0, column=0)
-        self.FileLabel = Label(self, text='文件:', width=10)
+
+        self.FileLabel = tk.Label(self, text='文件:', width=10)
         self.Filev = StringVar()
         self.FileEntry = Entry(self, textvariable=self.Filev, width=60)
         self.FileButton = Button(self, text='....', command=self.funcOpen1)
@@ -82,8 +82,8 @@ class Application(tk.Frame):
 
     def encrypt(self):
         Pfile = self.Filev.get()
-        Cfile = asksaveasfilename()
         keysFile = self.Pubv.get()
+        Cfile = asksaveasfilename()
         self.rsa_cbc.encrypt(Pfile, Cfile, keysFile)
 
     def decrpyt(self):
