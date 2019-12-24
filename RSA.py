@@ -36,7 +36,6 @@ class RSA:
         """生成密钥"""
         seed = random.randint(0, 100000000000)
         rs = gmpy2.random_state(seed)
-        print (rs)
         p = self.gen_prime(rs)
         q = self.gen_prime(rs)
         return p, q
